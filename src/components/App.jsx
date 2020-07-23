@@ -1,12 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
+import { appInitialize } from '../redux/App/AppActions';
 
-export class App extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(this);
-  }
-
-  render() {
-    return 'test';
-  }
+const App = ({ appInitialize }) => {
+  appInitialize();
+  return <div>test</div>;
 }
+
+export default connect(state => ({}), {
+  appInitialize
+})(App);

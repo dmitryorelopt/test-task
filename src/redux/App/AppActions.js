@@ -1,9 +1,8 @@
-import { actionsCreator, payload } from "../../decorators/ActionDecorators";
-
-@actionsCreator()
-class AppActions {
-  @payload()
-  APP_INITIALIZE;
-}
-
-export const appActions = new AppActions();
+export const APP_INITIALIZE = "APP_INITIALIZE";
+export const appInitialize = () => {
+  return dispatch => {
+    dispatch({
+      type: APP_INITIALIZE
+    });
+  }
+};
