@@ -4,6 +4,7 @@ import { getAllData } from "../redux/App/AppActions";
 import styled from "styled-components";
 import Table from "./Table";
 import { Header } from "./Header";
+import Loader from './Loader';
 
 const Container = styled.div`
   position: relative;
@@ -19,6 +20,7 @@ const App = ({ getAllData }) => {
     <Container>
       <Header />
       <Table />
+      <Loader />
     </Container>
   );
 };
