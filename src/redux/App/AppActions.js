@@ -1,7 +1,9 @@
 import { actionsCreator, payload } from "../../decorators/ActionDecorators";
 
 @actionsCreator()
-export class AppActions {
+class AppActions {
   @payload()
-  static APP_INITIALIZE;
+  APP_INITIALIZE;
 }
+
+export const appActions = new AppActions();

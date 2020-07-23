@@ -1,4 +1,4 @@
-import { AppActions } from "./AppActions";
+import { appActions } from "./AppActions";
 
 const initializeState = {
   nextState: "init"
@@ -9,7 +9,7 @@ export function AppReducers(
   action
 ) {
   switch (action.type) {
-    case AppActions.APP_INITIALIZE: {
+    case appActions.APP_INITIALIZE: {
       return {
         ...state,
         nextState: action.payload
