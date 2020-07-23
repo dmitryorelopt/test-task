@@ -64,6 +64,13 @@ const Data = styled.div`
   font-weight: ${props => (props.primary ? "bold" : "normal")};
   font-size: 12px;
   letter-spacing: 0.35px;
+  ${props =>
+    props.hide &&
+    `
+    @media(max-width: ${props.hide}px) {
+      display: none;
+    }
+  `}
 `;
 
 const Name = styled(Data)`
@@ -88,12 +95,12 @@ const TableRow = ({
         <UID>Position</UID>
         <Data>Pts.</Data>
         <Data>P.</Data>
-        <Data>W.</Data>
-        <Data>D.</Data>
-        <Data>L.</Data>
-        <Data>GF.</Data>
-        <Data>GA.</Data>
-        <Data>GD.</Data>
+        <Data hide={420}>W.</Data>
+        <Data hide={460}>D.</Data>
+        <Data hide={520}>L.</Data>
+        <Data hide={580}>GF.</Data>
+        <Data hide={610}>GA.</Data>
+        <Data hide={700}>GD.</Data>
       </Container>
     );
   }
@@ -110,12 +117,12 @@ const TableRow = ({
       </UID>
       <Data primary>{attributes.AwayAgainst}</Data>
       <Data>{attributes.Points}</Data>
-      <Data>{attributes.Drawn}</Data>
-      <Data>{attributes.HomeAgainst}</Data>
-      <Data>{attributes.HomePlayed}</Data>
-      <Data>{attributes.HomePosition}</Data>
-      <Data>{attributes.AwayPoints}</Data>
-      <Data>{attributes.AwayWon}</Data>
+      <Data hide={420}>{attributes.Drawn}</Data>
+      <Data hide={460}>{attributes.HomeAgainst}</Data>
+      <Data hide={520}>{attributes.HomePlayed}</Data>
+      <Data hide={580}>{attributes.HomePosition}</Data>
+      <Data hide={610}>{attributes.AwayPoints}</Data>
+      <Data hide={700}>{attributes.AwayWon}</Data>
     </Container>
   );
 };

@@ -6,9 +6,21 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 30px 0;
+
+  @media (max-width: 710px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  @media (max-width: 480px) {
+    align-items: stretch;
+  }
 `;
 
 const Title = styled.span`
+  text-align: center;
   font-size: 28px;
   font-weight: bold;
   letter-spacing: 0.16px;

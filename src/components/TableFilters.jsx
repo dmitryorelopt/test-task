@@ -5,6 +5,11 @@ import Filter from "./Filter";
 const Container = styled.div`
   display: flex;
   gap: 20px;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 5px;
+  }
 `;
 
 export const TableFilters = ({}) => {

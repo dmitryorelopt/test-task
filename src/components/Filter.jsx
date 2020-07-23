@@ -5,11 +5,17 @@ import { changeFilter } from "../redux/App/AppActions";
 import { ArrowRight } from "../images/ArrowRight";
 
 const Container = styled.div`
+  height: 38px;
   display: flex;
   position: relative;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 const Select = styled.select`
+  width: 100%;
   padding: 0 50px 0 15px;
   border: 1px solid rgba(95, 37, 159, 0.2);
   border-radius: 30px;
