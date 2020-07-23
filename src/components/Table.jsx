@@ -4,17 +4,22 @@ import styled from "styled-components";
 import TableRow from "./TableRow";
 
 const Container = styled.div`
-  margin: 0;
-  padding: 0;
-  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 `;
 
 const Table = ({ records }) => {
   return (
     <Container>
       <TableRow title />
-      {records.map(record => (
-        <TableRow key={record.Name} uid={record["@attributes"].uID} />
+      {records.map((record, index) => (
+        <TableRow
+          key={record.Name}
+          uid={record["@attributes"].uID}
+          position={index}
+          name={record.Name}
+        />
       ))}
     </Container>
   );

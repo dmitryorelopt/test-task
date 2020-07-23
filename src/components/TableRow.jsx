@@ -3,40 +3,69 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import { rowFocus } from "../redux/App/AppActions";
 
-const Container = styled.div`
-  margin: 0;
-  padding: 0;
-  background-color: white;
+const Container = styled("div")`
+  position: relative;
+  display: flex;
+  border-radius: 9px;
+  background-color: #ffffff;
+  height: 45px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px 0 30px;
+  overflow: hidden;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 5px;
+    height: 100%;
+    background-color: ${props => props.marker};
+    left: 0;
+    top: 0;
+  }
 `;
 
 const UID = styled.div`
-  margin: 0;
-  padding: 0;
-  background-color: white;
-`;
-
-const Marker = styled.span`
-  margin: 0;
-  padding: 0;
-  background-color: white;
+  display: flex;
+  width: 300px;
+  justify-content: flex-start;
+  align-items: center;
 `;
 
 const Position = styled.span`
-  margin: 0;
-  padding: 0;
-  background-color: white;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.47px;
 `;
 
-const Logo = styled.div`
-  margin: 0;
-  padding: 0;
-  background-color: white;
+const Logo = styled.img`
+  width: 25px;
+  height: 25px;
+  margin: 0 10px 0 30px;
 `;
 
 const Data = styled.div`
-  margin: 0;
-  padding: 0;
-  background-color: white;
+  display: flex;
+  width: 90px;
+  justify-content: center;
+  align-items: center;
+  font-weight: ${props => (props.primary ? "bold" : "normal")};
+  font-size: 12px;
+  letter-spacing: 0.35px;
+`;
+
+const Name = styled(Data)`
+  font-weight: bold;
+  justify-content: flex-start;
 `;
 
 const TableRow = ({
@@ -69,11 +98,11 @@ const TableRow = ({
     rowFocus(uid);
   }, []);
   return (
-    <Container onClick={onClick}>
+    <Container onClick={onClick} marker={marker}>
       <UID>
-        <Marker marker={marker} />
         <Position>{position}</Position>
-        <Logo uri={logoUri} name={name} />
+        <Logo src={logoUri} alt="" />
+        <Name>{name}</Name>
       </UID>
       <Data primary>{attributes.AwayAgainst}</Data>
       <Data>{attributes.Points}</Data>

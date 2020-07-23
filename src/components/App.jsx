@@ -6,9 +6,11 @@ import Table from "./Table";
 import { Header } from "./Header";
 
 const Container = styled.div`
-  margin: 0;
-  padding: 0;
-  background-color: white;
+  position: relative;
+  width: 100%;
+  max-width: 940px;
+  margin: auto;
+  padding: 20px 10px;
 `;
 
 const App = ({ getAllData }) => {
