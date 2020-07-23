@@ -1,6 +1,6 @@
-import { GET_ALL_DATA_REQUEST } from './AppActions';
-import { GET_ALL_DATA_SUCCESS } from './AppActions';
-import { GET_ALL_DATA_ERROR } from './AppActions';
+import { GET_ALL_DATA_REQUEST } from "./AppActions";
+import { GET_ALL_DATA_SUCCESS } from "./AppActions";
+import { GET_ALL_DATA_ERROR } from "./AppActions";
 
 const initializeState = {
   loading: false,
@@ -8,10 +8,7 @@ const initializeState = {
   data: null
 };
 
-export function AppReducers(
-  state = initializeState,
-  action
-) {
+export function AppReducers(state = initializeState, action) {
   switch (action.type) {
     case GET_ALL_DATA_REQUEST: {
       return {

@@ -4,8 +4,8 @@ class DataService {
 		if (response.status !== 200) {
 			throw new Error("Can't get data");
 		}
-		const responseBody = await response.json();
-		return responseBody.SoccerFeed.SoccerDocument;
+
+		return response.json()
 	}
 }
 
