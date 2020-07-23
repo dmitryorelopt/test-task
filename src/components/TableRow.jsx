@@ -7,20 +7,23 @@ const Container = styled("div")`
   position: relative;
   display: flex;
   border-radius: 9px;
-  background-color: #ffffff;
+  background-color: ${props => (props.focused ? "#84754e" : "#ffffff")};
   height: 45px;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px 0 30px;
   overflow: hidden;
+
   &:hover {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(132, 117, 78, 0.7);
     cursor: pointer;
   }
 
   &:active {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(132, 117, 78, 0.9);
   }
+
+  pointer-events: ${props => (props.disabled ? "none" : "auto")};
 
   &:before {
     content: " ";
@@ -76,11 +79,12 @@ const TableRow = ({
   uid,
   rowFocus,
   title,
-  marker
+  marker,
+  focused
 }) => {
   if (title) {
     return (
-      <Container>
+      <Container disabled>
         <UID>Position</UID>
         <Data>Pts.</Data>
         <Data>P.</Data>
@@ -98,7 +102,7 @@ const TableRow = ({
     rowFocus(uid);
   }, []);
   return (
-    <Container onClick={onClick} marker={marker}>
+    <Container onClick={onClick} marker={marker} focused={focused}>
       <UID>
         <Position>{position}</Position>
         <Logo src={logoUri} alt="" />
@@ -138,7 +142,8 @@ export default connect(
         ? "blue"
         : props.position === 6
         ? "red"
-        : "white"
+        : "white",
+    focused: props.uid === state.app.rowFocused
   }),
   {
     rowFocus
